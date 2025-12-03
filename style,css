@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+}
+
+section {
+    padding: 50px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+h1, h2, h3 {
+    color: #58a6ff;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: #161b22;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #238636;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.project-card {
+    background: #161b22;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+}
+
+.skills ul {
+    columns: 2;
+}
+
+a {
+    color: #58a6ff;
+}
+
