@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Ticket #{{ ticket.id }}</h2>
+
+<div class="card p-3 mt-3">
+
+  <p><strong>Title:</strong> {{ ticket.title }}</p>
+  <p><strong>Description:</strong> {{ ticket.description }}</p>
+
+  <p><strong>Priority:</strong> {{ ticket.priority }}</p>
+  <p><strong>Status:</strong> {{ ticket.status }}</p>
+
+  <p><strong>Assigned To:</strong> {{ ticket.assigned_to }}</p>
+
+  <p><strong>Notes:</strong><br>
+  <pre>{{ ticket.notes }}</pre></p>
+
+</div>
+
+<form method="post" class="mt-4">
+
+  <div class="mb-3">
+    <label>Status</label>
+    <select name="status" class="form-select">
+      <option {{ "selected" if ticket.status=="Open" }}>Open</option>
+      <option {{ "selected" if ticket.status=="In Progress" }}>In Progress</option>
+      <option {{ "selected" if ticket.status=="Closed" }}>Closed</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label>Assigned Technician</label>
+    <select name="assigned_to" class="form-select">
+      {% for tech in technicians %}
+      <option {{ "selected" if ticket.assigned_to == tech }}>{{ tech }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label>Add Note</label>
+    <textarea name="note" class="form-control"></textarea>
+  </div>
+
+  <button class="btn btn-primary" type="submit">Save Changes</button>
+
+</form>
+
+{% endblock %}

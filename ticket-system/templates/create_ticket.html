@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Create Ticket</h2>
+
+<form method="post" class="mt-4">
+
+  <div class="mb-3">
+    <label>Title</label>
+    <input type="text" name="title" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label>Description</label>
+    <textarea name="description" class="form-control" required></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label>Priority</label>
+    <select name="priority" class="form-select">
+      <option>Low</option>
+      <option>Medium</option>
+      <option>High</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label>Category</label>
+    <select name="category" class="form-select">
+      <option>Software</option>
+      <option>Hardware</option>
+      <option>Network</option>
+      <option>Account</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label>Assigned Technician</label>
+    <select name="assigned_to" class="form-select">
+      {% for tech in technicians %}
+      <option>{{ tech }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button class="btn btn-success" type="submit">Create Ticket</button>
+
+</form>
+
+{% endblock %}
